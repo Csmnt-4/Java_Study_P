@@ -1,14 +1,18 @@
 package entities;
 
 
-import static entitiesActions.Attack.attack;
-import static entitiesActions.SearchWithTarget.target;
-import static entitiesActions.Walk.walk;
+import spaces.World;
+
+import static entitiesActions.Attack.*;
+import static entitiesActions.SearchWithTarget.*;
+import static entitiesActions.Walk.*;
 
 public class Entity {
-    private static int idCounter = 0;
-    protected long id;      // приравнивается idCounter, после чего idCounter увеличивается на 1
-    protected String name;  // имя сущности
+    private static int idCounter = 1;
+    final long id;          // приравнивается idCounter, после чего idCounter увеличивается на 1
+    protected String name;  // имя сущности, читай "t i t l e"
+
+    protected World world;  // мир, в котором сущность существует
 
     protected double posX;      // позиция по x
     protected double posZ;      // позиция по z
@@ -25,9 +29,10 @@ public class Entity {
     protected double health;       // текущее кол-во жизней
 
     // Конструктор класса
-    public Entity(String name, double posX, double posZ, boolean aggressive, double speed, int maxHealth, int attackDamage) {
+    public Entity(World world, String name, double posX, double posZ, boolean aggressive, double speed, int maxHealth, int attackDamage) {
         this.id = idCounter;
             idCounter++;
+        this.world = world;
         this.name = name;
         this.posX = posX;
         this.posZ = posZ;
@@ -72,10 +77,6 @@ public class Entity {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {

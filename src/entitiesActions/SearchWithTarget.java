@@ -14,7 +14,7 @@ public class SearchWithTarget {
         if (searcher.getAttackedCreatureId() > 0) {
             System.out.println("\n\tIt's " + searcher.getName() + " turn.\n\tIt's target is " + searcher.getAttackedCreatureId());
         } else {
-            System.out.println("\n\t" + searcher.getName() + " is idle.");
+            System.out.println("\n\t" + searcher.getName() + " seems AFK.");
         }
         if (searcher.isAggressive() && searcher.getWalkingX() == 0 && searcher.getWalkingZ() == 0 && searcher.getIndicator() == 0) {
             LinkedList<Destination> entityDestination = new LinkedList<>();
@@ -37,7 +37,7 @@ public class SearchWithTarget {
             searcher.setWalkingX(entityDestination.getFirst().getX());
             searcher.setWalkingZ(entityDestination.getFirst().getZ());
 
-            System.out.println("The new destination of " + searcher.getName() + " is: x=" + searcher.getWalkingX() + ", y=" + searcher.getWalkingZ());
+            System.out.println("The new destination of " + searcher.getName() + " is: id = " + searcher.getAttackedCreatureId() + ", (" + searcher.getWalkingX() + ", " + searcher.getWalkingZ() + ")");
 
             searcher.setWalkingX(searcher.getWalkingX() - 1);
             searcher.setWalkingZ(searcher.getWalkingZ() - 1);

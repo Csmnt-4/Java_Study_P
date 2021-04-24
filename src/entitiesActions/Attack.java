@@ -9,11 +9,15 @@ public class Attack
 {
     public static void attack (Entity attacker) {
         if (attacker.getIndicator() == 2){
+            int flag = 0;
             for (Entity p : World.getAllEntities()) {
 
     //  Атака
 
                 if (p.getId() == attacker.getAttackedCreatureId()) {
+
+                    flag++;
+
                     if (p instanceof PlayerEntity) {
                         attackPlayerEntity(attacker, p, GameServer.getDifficulty());
                     } else {
@@ -55,6 +59,15 @@ public class Attack
                         System.out.println(" ");
                     }
                 }
+            }
+
+    // Проверка, был ли кто-либо атакован
+
+            if (flag == 0) {
+                attacker.setAttackedCreatureId(0);
+                attacker.setIndicator(0);
+                attacker.setWalkingX(0);
+                attacker.setWalkingZ(0);
             }
         }
     }

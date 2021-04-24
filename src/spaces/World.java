@@ -4,6 +4,8 @@ import entities.Entity;
 
 import java.util.LinkedList;
 
+import static entitiesActions.Sort.*;
+
 public class World {
     private String ip;
     private String worldName;
@@ -22,7 +24,15 @@ public class World {
                 '}';
     }
 
+    public static LinkedList<Entity> getEntitiesInRegion (int x, int y, double  range) {
+        return sort(x,y,range);
+    }
 
+    public static LinkedList<Entity> getEntitiesNearEntity (Entity entity, double  range) {
+        double x = entity.getPosX();
+        double y = entity.getPosZ();
+        return sort(x,y,range);
+    }
 
     public static void updateWorld(World world, int diff) {
         for(Entity e : getAllEntities()){

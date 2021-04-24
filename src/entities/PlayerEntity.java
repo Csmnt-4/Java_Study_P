@@ -1,5 +1,7 @@
 package entities;
 
+import spaces.World;
+
 import java.util.LinkedList;
 
 public class PlayerEntity extends Entity {
@@ -7,10 +9,10 @@ public class PlayerEntity extends Entity {
     private final String nickname;
     private static int easyCount;
 
-    public PlayerEntity(String name, String nickname, double posX, double posZ, double speed, int maxHealth, int attackDamage) {
+    public PlayerEntity(World world, String name, String nickname, double posX, double posZ, double speed, int maxHealth, int attackDamage) {
         //сначала вызывает родительскую реализацию
 
-        super(name, posX, posZ, false, speed, maxHealth, attackDamage);
+        super(world, name, posX, posZ, false, speed, maxHealth, attackDamage);
 
         //передает в родительский конструктор aggressive = false
 
