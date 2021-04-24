@@ -37,7 +37,7 @@ public class SearchWithTarget {
             searcher.setWalkingX(entityDestination.getFirst().getX());
             searcher.setWalkingZ(entityDestination.getFirst().getZ());
 
-            System.out.println("The new destination of " + searcher.getName() + " is: id = " + searcher.getAttackedCreatureId() + ", (" + searcher.getWalkingX() + ", " + searcher.getWalkingZ() + ")");
+            System.out.println("    The new destination of " + searcher.getName() + " is: id = " + searcher.getAttackedCreatureId() + ", (" + searcher.getWalkingX() + ", " + searcher.getWalkingZ() + ")");
 
             searcher.setWalkingX(searcher.getWalkingX() - 1);
             searcher.setWalkingZ(searcher.getWalkingZ() - 1);

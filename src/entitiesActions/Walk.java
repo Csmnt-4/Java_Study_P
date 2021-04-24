@@ -23,11 +23,11 @@ public class Walk {
                 walker.setIndicator(2);
                 for (Entity p : World.getAllEntities()) {
                     if (p.getId() == walker.getAttackedCreatureId()) {
-                        System.out.println(walker.getName() + " is ready to attack " + p.getName());
+                        System.out.println("    " + walker.getName() + " is ready to attack " + p.getName());
                     }
                 }
             } else {
-                System.out.printf(walker.getName() + " is walking...\nIts coordinates are: x= %.2f, y=%.2f\n\n", walker.getPosX(), walker.getPosZ());
+                System.out.printf("    " + walker.getName() + " is walking...\n    Its coordinates are: x= %.2f, y=%.2f\n", walker.getPosX(), walker.getPosZ());
             }
         }
     }
