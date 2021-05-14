@@ -1,6 +1,6 @@
 package entitiesActions;
 
-import main.GameServer;
+import back.GameServer;
 import entities.Entity;
 import entities.PlayerEntity;
 import spaces.World;
@@ -19,9 +19,9 @@ public class Attack
                     flag++;
 
                     if (p instanceof PlayerEntity) {
-                        attackPlayerEntity(attacker, p, GameServer.getDifficulty());
+                        attackPlayerEntity(attacker, p, GameServer.getConfig().getDifficulty());
                     } else {
-                        attackEntity(attacker, p, GameServer.getDifficulty());
+                        attackEntity(attacker, p, GameServer.getConfig().getDifficulty());
                     }
 
     //  Проверка на HP атакуемого
