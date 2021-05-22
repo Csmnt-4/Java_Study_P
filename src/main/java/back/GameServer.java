@@ -93,6 +93,14 @@ public class GameServer {
         this.serverWorld = serverWorld;
     }
 
+    public static GameConfig getConfig() {
+        return config;
+    }
+
+    public static void setConfig(GameConfig config) {
+        GameServer.config = config;
+    }
+
     //создает новый объект класса GameServer используя шаблон инстанцирования и выводит в его в консоль
     //после чего в цикле на 30(или больше если хотите) итераций раз в секунду вызывает обновление сервера
 }

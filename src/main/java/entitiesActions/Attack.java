@@ -28,7 +28,7 @@ public class Attack
 
                     if (p.getHealth()<=0){
                         if (p instanceof PlayerEntity)
-                            System.out.println("Player " + p.getName() + " was slain by " + p.getName() + "!");
+                            System.out.println("Player " + p.getName() + " was slain by " + attacker.getName() + "!");
                         else
                             System.out.println(p.getName() + " was slain by " + attacker.getName() + "!");
                         attacker.setIndicator(0);

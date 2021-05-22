@@ -4,7 +4,7 @@ import entities.Entity;
 
 import java.util.LinkedList;
 
-import static entitiesActions.Sort.*;
+import static entitiesActions.Sort.sort;
 
 public class World {
     private String ip;

@@ -3,9 +3,9 @@ package entities;
 
 import spaces.World;
 
-import static entitiesActions.Attack.*;
-import static entitiesActions.SearchWithTarget.*;
-import static entitiesActions.Walk.*;
+import static entitiesActions.Attack.attack;
+import static entitiesActions.SearchWithTarget.target;
+import static entitiesActions.Walk.walk;
 
 public class Entity {
     private static int idCounter = 1;
