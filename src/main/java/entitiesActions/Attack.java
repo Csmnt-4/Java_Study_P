@@ -1,8 +1,7 @@
 package entitiesActions;
 
 import back.GameServer;
-import entities.Entity;
-import entities.PlayerEntity;
+import entities.*;
 import spaces.World;
 
 public class Attack

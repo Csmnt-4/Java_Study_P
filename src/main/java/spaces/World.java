@@ -1,19 +1,26 @@
 package spaces;
 
 import entities.Entity;
-
+import java.io.Serializable;
 import java.util.LinkedList;
 
 import static entitiesActions.Sort.sort;
 
-public class World {
-    private String ip;
-    private String worldName;
+public class World implements Serializable {
+    private String ip = "192.10.1.1";
+    private String worldName = "Standard";
     static LinkedList<Entity> allEntities = new LinkedList<>();
 
     public World(String ip, String worldName) {
         this.ip = ip;
         this.worldName = worldName;
+    }
+
+    public World(String ip) {
+        this.ip = ip;
+    }
+
+    public World() {
     }
 
     @Override
@@ -39,7 +46,7 @@ public class World {
             e.update(diff);
         }
         getAllEntities().removeIf(entity -> entity.getHealth() <=0);
-        getAllEntities().removeIf(entity -> entity.getHealth() ==0);
+        getAllEntities().removeIf(entity -> entity.getHealth() ==0); // Так захотелось.
     }
 
     public String getIp() {
@@ -62,7 +69,7 @@ public class World {
         return allEntities;
     }
 
-    public static void setAllEntities(LinkedList<Entity> allEntities) {
-        World.allEntities = allEntities;
+    public static void setAllEntities(LinkedList<Entity> allE) {
+        allEntities = allE;
     }
 }

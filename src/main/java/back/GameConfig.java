@@ -1,8 +1,7 @@
 package back;
 
-public class GameConfig
-{
-    private String ip = "127.0.0.1";
+public class GameConfig {
+    private String ip = "127.0.1.0";
     private int port = 25655;
     private int difficulty = 2;
     private long updatePeriod = 1000;

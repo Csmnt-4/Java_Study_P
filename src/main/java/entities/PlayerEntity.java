@@ -1,12 +1,11 @@
 package entities;
 
 import spaces.World;
-
 import java.util.LinkedList;
 
 public class PlayerEntity extends Entity {
 
-    private final String nickname;
+    private String nickname;
     private static int easyCount;
 
     public PlayerEntity(World world, String name, String nickname, double posX, double posZ, double speed, int maxHealth, int attackDamage) {
@@ -19,6 +18,9 @@ public class PlayerEntity extends Entity {
         this.nickname = nickname;
         easyCount = 0;
     }
+    public PlayerEntity(){
+
+    }
 
     public void update(LinkedList<Entity> entities, LinkedList<PlayerEntity> players, int difficulty) {
         super.update(difficulty);
@@ -26,6 +28,26 @@ public class PlayerEntity extends Entity {
         if (easyCount % 2 == 0 && this.health < this.maxHealth){
             this.health++;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "PlayerEntity{" +
+                "name='" + name + '\'' +
+                ", world=" + world +
+                ", posX=" + posX +
+                ", posZ=" + posZ +
+                ", walkingX=" + walkingX +
+                ", walkingZ=" + walkingZ +
+                ", aggressive=" + aggressive +
+                ", indicator=" + indicator +
+                ", attackDamage=" + attackDamage +
+                ", attackedCreatureId=" + attackedCreatureId +
+                ", speed=" + speed +
+                ", maxHealth=" + maxHealth +
+                ", health=" + health +
+                ", nickname='" + nickname + '\'' +
+                '}';
     }
 
     public String getNickname() {

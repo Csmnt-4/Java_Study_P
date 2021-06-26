@@ -1,15 +1,15 @@
 package entities;
 
-
 import spaces.World;
+import java.io.Serializable;
 
 import static entitiesActions.Attack.attack;
 import static entitiesActions.SearchWithTarget.target;
 import static entitiesActions.Walk.walk;
 
-public class Entity {
+public class Entity implements Serializable {
     private static int idCounter = 1;
-    final long id;          // приравнивается idCounter, после чего idCounter увеличивается на 1
+    private long id;          // приравнивается idCounter, после чего idCounter увеличивается на 1
     protected String name;  // имя сущности, читай "t i t l e"
 
     protected World world;  // мир, в котором сущность существует
@@ -44,6 +44,30 @@ public class Entity {
         this.health = maxHealth;
         this.attackDamage = attackDamage;
         this.indicator = 0;
+    }
+
+    public Entity() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Entity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", world=" + world +
+                ", posX=" + posX +
+                ", posZ=" + posZ +
+                ", walkingX=" + walkingX +
+                ", walkingZ=" + walkingZ +
+                ", aggressive=" + aggressive +
+                ", indicator=" + indicator +
+                ", attackDamage=" + attackDamage +
+                ", attackedCreatureId=" + attackedCreatureId +
+                ", speed=" + speed +
+                ", maxHealth=" + maxHealth +
+                ", health=" + health +
+                '}';
     }
 
     public void update(int difficulty) {
