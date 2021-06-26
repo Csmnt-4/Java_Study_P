@@ -1,5 +1,6 @@
 package back;
 
+import entities.*;
 import spaces.World;
 
 import java.io.File;
@@ -115,6 +116,7 @@ public class GameServer {
         instance = this;
     }
 
+
     @Override
     public String toString() {
         return "GameServer{" +
@@ -163,6 +165,10 @@ public class GameServer {
         return worldSaveFile;
     }
 
+    public static File getEntitiesSaveFile() {
+        return entitiesSaveFile;
+    }
+
     public int getSaveIndicator() {
         return saveIndicator;
     }
@@ -190,6 +196,22 @@ public class GameServer {
             serverWorld.setAllEntities(FileUtils.loadEnt(entitiesSaveFile));
         } else {
             serverWorld = new World();
+        // Сущности, просто сущности
+            serverWorld.getAllEntities().addFirst(new Entity(serverWorld,
+                "Steven the Duck", 12.5, 13.9, true, 10,999, 10));
+            serverWorld.getAllEntities().addLast(new Entity(serverWorld,
+                "Goodwin the Wizard", 10, 5, false, 45, 45, 199));
+            serverWorld.getAllEntities().addLast(new Entity(serverWorld,
+                "Just a Garden Wall of Roses", 7, 0, false, 0,9999, 1));
+            serverWorld.getAllEntities().addLast(new Entity(serverWorld,
+                "Boris the Duck", 10, 4.9, true, 10,999, 10));
+            serverWorld.getAllEntities().addLast(new Entity(serverWorld,
+                "The Beast From The Night o' sphere", 30, 20.1, true, 20,400, 99));
+        // Сущности "игроков"
+            serverWorld.getAllEntities().addLast(new PlayerEntity(serverWorld,
+                "Lena S", "Lenka", 16, 10, 45, 500, 107));
+            serverWorld.getAllEntities().addFirst(new PlayerEntity(serverWorld,
+                "The Nordic Lord", "Vanya Pup", 15.3, 7, 60, 200, 50));
         }
 
     }
